@@ -1,0 +1,11 @@
+date,description,amount,account
+2026-07-02,AR receipt A,12500.00,101000
+2026-07-03,Vendor Alpha payment,-3250.00,101000
+2026-07-07,AR receipt B,8400.00,101000
+2026-07-10,Vendor Beta payment,-4725.00,101000
+2026-07-14,AR receipt C,6650.00,101000
+2026-07-16,Payroll run,-9800.00,101000
+2026-07-21,AR receipt D,9100.00,101000
+2026-07-24,Vendor Gamma payment,-2180.00,101000
+2026-07-30,Check 1048 - Office Supply Co,-620.00,101000
+2026-08-01,AR receipt E,7400.00,101000

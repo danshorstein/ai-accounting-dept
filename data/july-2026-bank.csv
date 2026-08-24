@@ -1,0 +1,11 @@
+date,description,amount
+2026-07-02,Customer deposit A,12500.00
+2026-07-03,ACH Vendor Alpha,-3250.00
+2026-07-07,Customer deposit B,8400.00
+2026-07-10,ACH Vendor Beta,-4725.00
+2026-07-14,Customer deposit C,6650.00
+2026-07-16,Payroll,-9800.00
+2026-07-21,Customer deposit D,9100.00
+2026-07-24,ACH Vendor Gamma,-2180.00
+2026-07-29,Bank service charge,-35.00
+2026-07-31,Customer deposit E,7400.00
