@@ -1,0 +1,16 @@
+id,date,description,amount,account
+G01,2026-08-01,AR receipt F,5200.00,101000
+G02,2026-08-01,AR receipt J,2600.00,101000
+G03,2026-08-05,Vendor Alpha payment,-3410.00,101000
+G04,2026-08-05,Check 1052 - Acme Freight,-890.00,101000
+G05,2026-08-06,Vendor Delta payment,-1845.00,101000
+G06,2026-08-07,Void Check 1052 - Acme Freight,890.00,101000
+G07,2026-08-09,AR receipt G,7850.00,101000
+G08,2026-08-11,AR write-off - Bright Retailers,-1250.00,110000
+G09,2026-08-12,Vendor Zeta payment,2410.00,101000
+G10,2026-08-14,Vendor Theta payment,-5436.00,101000
+G11,2026-08-15,AR receipt K,3300.00,101000
+G12,2026-08-15,Payroll run,-10200.00,101000
+G13,2026-08-18,AR receipt H,6300.00,101000
+G14,2026-08-22,Vendor Beta payment,-2975.00,101000
+G15,2026-08-27,AR receipt I,8150.00,101000
