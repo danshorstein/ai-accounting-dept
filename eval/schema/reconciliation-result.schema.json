@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "reconciliation-result.schema.json",
+  "title": "Bank Reconciliation Structured Result",
+  "description": "Machine-checkable translation of a completed reconciliation workpaper. Produced AFTER the workpaper is finished, as a separate serialization step -- this schema is not seen by the model while it is doing the accounting work itself.",
+  "type": "object",
+  "required": [
+    "period", "account", "balances", "population_findings", "matches",
+    "reconciling_items", "residual_unexplained_difference", "account_reconciles"
+  ],
+  "properties": {
+    "period": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}$" },
+    "account": { "type": "string" },
+
+    "balances": {
+      "type": "object",
+      "required": ["bank_beginning", "bank_ending_reported", "gl_beginning", "gl_ending"],
+      "properties": {
+        "bank_beginning": { "type": "string", "description": "Decimal string, e.g. \"74060.00\"" },
+        "bank_ending_reported": { "type": "string" },
+        "gl_beginning": { "type": "string" },
+        "gl_ending": { "type": "string" }
+      }
+    },
+
+    "population_findings": {
+      "type": "array",
+      "description": "Scope/integrity findings from source-population-validation -- duplicates, foreign accounts, out-of-period rows. NOT reconciling items.",
+      "items": {
+        "type": "object",
+        "required": ["source", "row_ids", "finding_type", "excluded_from_population"],
+        "properties": {
+          "source": { "type": "string", "enum": ["bank", "gl", "both"] },
+          "row_ids": { "type": "array", "items": { "type": "string" } },
+          "finding_type": {
+            "type": "string",
+            "enum": ["duplicate_row", "foreign_account", "out_of_period", "zero_or_invalid_amount", "other"]
+          },
+          "excluded_from_population": {
+            "type": "boolean",
+            "description": "True if the row was removed from the roll-forward/matching population (duplicates, foreign accounts). False for a disclosed-but-included item like a cutoff row that still belongs in the reported totals."
+          },
+          "description": { "type": "string" }
+        }
+      }
+    },
+
+    "matches": {
+      "type": "array",
+      "description": "Every accepted bank-to-GL match, by source row id.",
+      "items": {
+        "type": "object",
+        "required": ["bank_row_id", "gl_row_id", "match_type"],
+        "properties": {
+          "bank_row_id": { "type": ["string", "null"] },
+          "gl_row_id": { "type": ["string", "null"] },
+          "match_type": { "type": "string", "enum": ["exact", "date_window", "none"] },
+          "date_gap_days": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+
+    "reconciling_items": {
+      "type": "array",
+      "description": "Every unmatched item, classified per cash-reconciliation-policy §6.",
+      "items": {
+        "type": "object",
+        "required": ["ref", "bank_row_ids", "gl_row_ids", "amount", "classification",
+                     "proposed_adjustment_required", "escalated"],
+        "properties": {
+          "ref": { "type": "string" },
+          "bank_row_ids": { "type": "array", "items": { "type": "string" } },
+          "gl_row_ids": { "type": "array", "items": { "type": "string" } },
+          "amount": { "type": "string", "description": "Net dollar impact of this item on the residual, as a decimal string. Signed." },
+          "classification": {
+            "type": "string",
+            "enum": ["timing_difference", "gl_exception", "bank_exception", "unresolved_exception"]
+          },
+          "is_prior_period_carryforward": {
+            "type": "boolean",
+            "description": "True only for an item that resolves a beginning-balance difference carried from a prior period (e.g. a check outstanding at last period's close that clears this period). Such an item must not also be counted as a new current-period reconciling difference."
+          },
+          "proposed_adjustment_required": { "type": "boolean" },
+          "proposed_adjustment_debit_account": { "type": ["string", "null"] },
+          "proposed_adjustment_credit_account": { "type": ["string", "null"] },
+          "escalated": { "type": "boolean" },
+          "escalation_reason": { "type": ["string", "null"] }
+        }
+      }
+    },
+
+    "residual_unexplained_difference": {
+      "type": "string",
+      "description": "What is left over after every matched and reconciling item is accounted for. Must be an exact decimal string, e.g. \"0.00\". Never omitted, never rounded away."
+    },
+
+    "account_reconciles": { "type": "boolean" },
+
+    "open_items_for_controller": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}
