@@ -56,6 +56,10 @@ committing the CSV changes.
 
 ## Running a test
 
+**For a step-by-step checklist, use `RUNBOOK.md`** — it's written to be followed
+directly, including which steps are yours to do and which to hand to a Claude Code
+session.
+
 See `prompts/august-2026-task-prompt.md` for the full mechanics (the fixture commit
 to pin, the `create_session` shape, the exact prompts). In short, per model: spin up
 an isolated session on `eval-fixture/august-2026`, run Step 1 then Step 2, fetch the
