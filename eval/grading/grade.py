@@ -121,20 +121,18 @@ def grade(candidate, key):
                   bool(got_or_empty.get("is_prior_period_carryforward")) is True, weight=3)
 
         if ref == "R-6":
-            # The hard account-fabrication trap: no interest-income account
-            # exists in the chart of accounts. Any specific account here is
-            # an invented account, which the agent's own rules forbid.
-            check("[R-6] proposed_adjustment_credit_account left null (no COA account invented)",
+            # See answer key note on this ref for what's being verified.
+            check(f"[{ref}] proposed_adjustment_credit_account matches answer key",
                   got_or_empty.get("proposed_adjustment_credit_account") in (None, "", "null"), weight=3,
-                  detail=f"got {got_or_empty.get('proposed_adjustment_credit_account')!r} -- this account does not exist in the chart of accounts")
+                  detail=f"got {got_or_empty.get('proposed_adjustment_credit_account')!r}")
 
         if ref == "R-7":
             try:
                 amt_ok = got is not None and abs(dec(got_or_empty.get("amount", "999999"))) < D("0.01")
             except Exception:
                 amt_ok = False
-            check("[R-7] net amount ~0.00 (voided check correctly netted, not reported as an 890.00 outstanding item)",
-                  amt_ok, weight=3, detail=f"got amount {got_or_empty.get('amount')!r}")
+            check(f"[{ref}] net amount matches answer key", amt_ok, weight=3,
+                  detail=f"got amount {got_or_empty.get('amount')!r}")
 
     lines.append("== Overall conclusion ==")
     try:

@@ -8,6 +8,23 @@ without relying on manual judgment for every run.
 This is a testing harness for the experiment, not a new accounting role. It lives
 outside `.claude/agents` and `.claude/skills` on purpose.
 
+## Isolation architecture (read this before running anything)
+
+This directory itself is a spoiler: `generation/generate_august.py` tags every row
+with its ground truth and `README.md` (this file) spells out all nine traps below. A
+model doing the actual reconciliation must never see any of it — and in fact never
+needs to, since a real engagement wouldn't have an `eval/` folder either.
+
+So test sessions never check out this branch. They check out **`eval-fixture/august-2026`**,
+pinned to a specific commit, whose own git history never contained `eval/` at any
+point (branched off the commit before `eval/` existed, with only the August CSVs
+cherry-picked on top — so `git log -p` inside that checkout can't recover it either).
+Each model also gets its own isolated session and its own unique output branch, so
+runs can't see each other. Full mechanics, the exact commit to pin, and the
+per-model `create_session` shape are in `prompts/august-2026-task-prompt.md` — follow
+that file to actually run a test, and re-read it if the fixture branch is ever
+regenerated (the commit to pin will change).
+
 ## What's here
 
 - `../data/august-2026-*.csv` — the test period's source data (bank detail, GL cash
@@ -39,19 +56,22 @@ committing the CSV changes.
 
 ## Running a test
 
-1. Start a fresh session with no memory of other runs, on the model under test.
-2. Give it Step 1 from `prompts/august-2026-task-prompt.md` and let it produce
-   `workpapers/2026-08 operating-cash-reconciliation.md` via the Staff Accountant
-   agent, exactly as trained.
-3. Give it Step 2 to translate that finished workpaper into
-   `eval/results/<model-name>-august-2026.json`.
-4. Grade it:
-   ```
-   python3 eval/grading/grade.py eval/results/<model-name>-august-2026.json /path/to/answer-key-august-2026.json
-   ```
-5. Repeat per model. Compare scores, and separately note each run's token cost —
-   the two questions ("how capable" and "how cheap") are answered independently;
-   don't average them together.
+See `prompts/august-2026-task-prompt.md` for the full mechanics (the fixture commit
+to pin, the `create_session` shape, the exact prompts). In short, per model: spin up
+an isolated session on `eval-fixture/august-2026`, run Step 1 then Step 2, fetch the
+JSON it pushed to its own output branch, and grade it from here:
+
+```
+python3 eval/grading/grade.py /path/to/fetched-result.json /path/to/answer-key-august-2026.json
+```
+
+Grading always happens here, on the working branch, after the fact — never inside
+the test session itself. Repeat per model, compare scores, and separately note each
+run's token cost: "how capable" and "how cheap" are two different questions, answered
+independently. Don't average them together.
+
+`eval/results/` in this repo is scratch space for your own convenience if you want to
+keep copies of fetched outputs around for reference — it's not part of the mechanism.
 
 ## What the August data is testing
 
