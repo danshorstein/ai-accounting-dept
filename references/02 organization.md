@@ -13,10 +13,10 @@ Additional accounting roles may be added later as the experiment grows, such as:
 - Accounts Receivable Specialist
 - Internal Audit
 - Financial Planning & Analysis
-- Senior Accountnat
+- Senior Accountant
 - CFO
 
-For the first experiment, the only role we are focused on is the **Staff Accountant**.
+Currently there is only a controll and a **Staff Accountant**.
 
 ## Staff Accountant context
 

@@ -8,9 +8,9 @@
 | **Period** | 2026-07 (2026-07-01 through 2026-07-31) |
 | **Prepared by** | Staff Accountant (Claude) |
 | **Date prepared** | 2026-08-22 |
-| **Reviewed by** | _________________ (Controller) |
-| **Date reviewed** | _________________ |
-| **Review outcome** | ☐ Approved  ☐ Returned with questions/corrections |
+| **Reviewed by** | Pythonic Accountant (Controller) |
+| **Date reviewed** | 2026-08-26 |
+| **Review outcome** | x Approved  ☐ Returned with questions/corrections |
 
 Prepared under `03 cash-reconciliation-policy.md` and `04 bank-reconciliation-procedure.md`. Submitted for independent review under `05 independent-review-control.md`. The preparer has not approved this work.
 
@@ -182,4 +182,4 @@ Open for Controller action:
 
 ---
 
-*Prepared by the Staff Accountant. Not effective until independently reviewed and approved by the Controller per `05 independent-review-control.md`.*
+*Prepared by the Staff Accountant. Approved by Controller per `05 independent-review-control.md`.*

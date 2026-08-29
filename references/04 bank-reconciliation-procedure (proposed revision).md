@@ -1,20 +1,5 @@
-# Bank Reconciliation Procedure — PROPOSED REVISION
+# Bank Reconciliation Procedure (v 1.1)
 
-> **Status: proposed revision — not yet approved.**
-> `04 bank-reconciliation-procedure.md` remains authoritative until the Controller
-> approves this document. Drafted 2026-08-22 following the July 2026 operating cash
-> reconciliation training exercise.
->
-> **What changed from `04`:**
-> 1. New step 2 — validate source population completeness before comparing activity.
->    Prior steps 2–6 renumbered to 3–7.
-> 2. Step 6 (workpaper contents) expanded to require the completeness proofs, a
->    residual-difference proof, an escalation assessment, and a judgment log.
-> 3. Closing "Judgment" section now states how tolerances and thresholds are supplied and
->    recorded, without prescribing any values.
->
-> No matching tolerance, date window, materiality level, or escalation threshold is
-> established by this revision. That remains deliberately undefined.
 
 ## Objective
 
