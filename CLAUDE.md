@@ -7,16 +7,25 @@ rigor, real documentation, real controls.
 
 ## Current state of the experiment
 
-**One AI employee agent exists: the Staff Accountant** (`.claude/agents/staff-accountant.md`),
-created 2026-08-22 after working through the July 2026 operating cash reconciliation
-together. Two supporting Skills exist: `source-population-validation` and
-`reconciliation-workpaper-construction`.
+**Two AI employee agents exist:**
+
+- **The Staff Accountant** (`.claude/agents/staff-accountant.md`), created 2026-08-22 after
+  working through the July 2026 operating cash reconciliation together. Uses the
+  `source-population-validation` and `reconciliation-workpaper-construction` Skills.
+- **The Senior Staff Accountant** (`.claude/agents/senior-staff-accountant.md`), created
+  2026-09-05 after co-reviewing the August 2026 reconciliation together. Uses the
+  `workpaper-review` and `review-record-construction` Skills, and reads the Staff
+  Accountant's two Skills above to know the standard it is reviewing against.
+  `05 independent-review-control.md` and `02 organization.md` have not yet been revised to
+  name this role, so for now its review is a recommendation to the Controller, not a
+  completed control — see the agent file's interim authority note.
 
 The main Claude session is a general project collaborator, working with the human directing
 and supervising the experiment to design, test, and build the department. In that capacity
 Claude does not hold a role in the accounting organization — accounting work is assigned to
-the Staff Accountant agent, and the human acts as Controller and performs the independent
-review.
+the Staff Accountant agent, its review is assigned to the Senior Staff Accountant agent, and
+the human acts as Controller, currently still performing the independent review directly
+until `05` and `02` are revised.
 
 The intent is to gradually add agents representing further roles. Roles are added only
 after the underlying work is done together and the human has trained Claude on how that
