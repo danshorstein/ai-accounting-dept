@@ -83,9 +83,10 @@ explicitly or ask.
 
 ## Repository conventions
 
-`data/` holds source accounting data as CSV, named `<period>-<source>.csv` — e.g.
-`july-2026-bank.csv`, `july-2026-gl-cash.csv`, `july-2026-bank-summary.csv`,
-`july-2026-trial-balance.csv`. Amounts are signed; outflows are negative.
+`data/` holds source accounting data as CSV, one directory per period —
+`data/<YYYY-MM>/<month>-<year>-<source>.csv`, e.g. `data/2026-08/august-2026-bank.csv`,
+`data/2026-08/august-2026-gl-cash.csv`, `data/2026-08/august-2026-bank-summary.csv`,
+`data/2026-08/august-2026-trial-balance.csv`. Amounts are signed; outflows are negative.
 
 ### Proposed convention (not from the source materials)
 
