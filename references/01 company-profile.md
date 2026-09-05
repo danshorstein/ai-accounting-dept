@@ -26,6 +26,7 @@ The company uses a calendar fiscal year.
 | 120000 | Inventory |
 | 200000 | Accounts Payable |
 | 400000 | Product Revenue |
+| 410000 | Interest Income |
 | 500000 | Cost of Goods Sold |
 | 610000 | Operating Expense |
 | 620000 | Bank Fees |
