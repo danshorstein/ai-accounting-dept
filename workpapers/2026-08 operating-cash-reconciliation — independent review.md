@@ -192,6 +192,67 @@ Plus the preparer's own already-disclosed escalations, unaffected by this review
 
 **Draft: Return with one required correction (RP-1/ST-1 — both are framing/completeness fixes, not re-analysis), and forward the FLAG items to the Controller as escalations alongside the preparer's own disclosed open items.** No figure, match, or classification in the workpaper is wrong; every number reperforms exactly. The finding that changes the most about how this should be read is ST-3 — I'd want that in front of you before AJE-1/2/3 are approved, not just noted in passing.
 
-One thing I'm not certain of and want your view on: my own stated rule was "missing required section" is an automatic must-return, applied here even though RP-1's actual severity is low. Is that the right hard line, or should severity be able to downgrade a structural-completeness finding to a note? This is exactly the kind of thing worth deciding on purpose now, for what the `workpaper-review` skill encodes later.
+One thing I'm not certain of and want your view on: my own stated rule was "missing required section" is an automatic must-return, applied here even though RP-1's actual severity is low. Is that the right hard line, or should severity be able to downgrade a structural-completeness finding to a note? This is exactly the kind of thing worth deciding on purpose now, for what the `workpaper-review` skill encodes later. (Now moot for this engagement — the fix was trivial either way — but still worth deciding for future engagements.)
 
-*Not yet approved or acted on. Held for Controller review per this exercise's co-review design.*
+---
+
+## Section E — Re-review (2026-09-05)
+
+Per `workpaper-review`'s working posture: this re-review checks only the two items
+returned (RP-1, ST-1) against the correction, and scans for anything the revision itself
+introduced. It does **not** re-open any FLAG item or re-perform any check that already
+passed in the original review — nothing about those changed.
+
+### RP-1 — re-check                                                        [Required]
+**Basis:** `reconciliation-workpaper-construction` skill §10 (as in the original finding).
+**Method:** Confirm a distinct "Open observations" section now exists, and that it
+substantively consolidates what was previously scattered.
+**Findings:** New §9 "Open observations" added between §8 and the renumbered §10. It
+contains the August I-2 cutoff-pattern disclosure and its July C-3 precedent, including the
+check that "AR receipt E" was not duplicated into August's source files, and states
+explicitly that it does not affect the residual proof or the conclusion. §3, §5, and §12's
+action item 7 are retained, each now cross-referencing the new section rather than holding
+the only copy of the disclosure. This matches the skill's own definition of the section
+("things that do not change the reconciliation... an ambiguity... may affect a later
+period").
+**Result:** ☑ Pass ☐ Fail ☐ Flag ☐ N/A
+
+### ST-1 — re-check                                                        [Required]
+**Basis:** `04` §6; `05` (as in the original finding).
+**Method:** Confirm the conclusion's lead sentence states the governing contingency before
+or alongside "reconciles," not after it.
+**Findings:** §12 (renumbered from §11) now opens: *"Account 101000 Operating Cash
+**conditionally reconciles** for August 2026, **contingent on treating duplicate bank row
+B10 (3,300.00) as a spurious, unconfirmed data artifact** — see the caveats below."* The
+contingency is now inline with the reconciles claim itself, not deferred to a later
+sentence. The rest of the paragraph (the 6,724.25 explanation, the residual, the adjusted
+balances under both readings) is unchanged.
+**Result:** ☑ Pass ☐ Fail ☐ Flag ☐ N/A
+
+### New-issue scan                                                         [Verification]
+**Basis:** General reperformance discipline (`workpaper-review`) — any revision needs the
+same "did it introduce something new" check the original reperformance applied to the
+first draft.
+**Method:** Independently traced every section cross-reference in the renumbered range (§9
+through §13, roughly 35 occurrences) against the actual headers; diffed the full file to
+confirm no figure, match, classification, judgment-log entry, or FLAG item changed.
+**Findings:** All cross-references resolve correctly — none stale, none double-shifted. The
+only content changes anywhere in the file are the new correction-note callout, the new §9
+section, and the reordered conclusion lead sentence. Every dollar figure, the escalation
+table, the AJE table, and all fourteen judgment-log entries are byte-identical to the
+version this review originally examined, apart from renumbered section citations within
+them (J-12's citation correctly updated from the old §9 to the new §10).
+**Result:** ☑ Pass ☐ Fail ☐ Flag ☐ N/A
+
+### Updated decision
+
+Both must-return items are resolved; the revision introduced nothing new. The workpaper is
+now structurally and presentationally sound. What remains is not a preparer defect —
+approval now turns on the Controller's own judgment on the items already on the table: the
+FLAG items from Section C (most significant: ST-3's directionality finding — every
+cash-affecting anomaly but one skews the same direction, totaling 6,734.00) and the
+preparer's own already-disclosed open items (B10's disposition, the R-2/R-3 classification,
+AJE-5's missing account). Recommend: **ready for Controller decision on those substantive
+points; no further return to the preparer required on RP-1 or ST-1.**
+
+*Held for Controller sign-off, as before.*
