@@ -8,9 +8,9 @@
 | **Period** | 2026-08 (2026-08-01 through 2026-08-31) |
 | **Prepared by** | Staff Accountant (Claude) |
 | **Date prepared** | 2026-08-29 |
-| **Reviewed by** | _______________ (Controller) |
-| **Date reviewed** | _______________ |
-| **Review outcome** | ☐ Approved  ☐ Returned with questions/corrections |
+| **Reviewed by** | __Pytthonic Acct____ (Controller) |
+| **Date reviewed** | ___9/5/26________ |
+| **Review outcome** | x Approved  ☐ Returned with questions/corrections |
 
 Prepared under `03 cash-reconciliation-policy.md` and `04 bank-reconciliation-procedure (proposed revision).md`. Submitted for independent review under `05 independent-review-control.md`. The preparer has not approved this work and does not approve their own work.
 
@@ -330,7 +330,7 @@ Threshold: **$200.00** (Controller, 2026-08-29). Items are also escalated below 
 | J-7 | R-1 (Zeta) presented as a GL sign error requiring adjustment | Bank B07 is a (2,410.00) outflow; GL G09 is +2,410.00; every other vendor payment in the file is negative | `04` §4; preparer inference (labelled) |
 | J-8 | R-2 (Theta 27.00) and R-3 (Delta 1,845.00) left with two readings — GL error or bank error — not resolved | Data supports both; residual is 0.00 either way; corrective action differs and is a Controller decision | `03` §4; `04` §4 |
 | J-9 | R-4 (42.00 bank fee) proposed as an adjustment, not escalated | Routine unrecorded bank fee, fully supported, below the $200 threshold, not unusual in kind; consistent with July T-2 | `04` §5; Controller threshold 2026-08-29 |
-| J-10 | R-5 (9.75 interest) escalated despite being below threshold; no credit account assumed | No interest-income account in the chart; a chart-of-accounts gap is unusual in kind; "do not invent accounts" | CLAUDE.md conventions; `01`; `03` §5 |
+| J-10 | R-5 (9.75 interest) escalated despite being below threshold; no credit account assumed | No interest-income account in the chart; a chart-of-accounts gap is unusual in kind; "do not invent accounts" | escalation — `03` §5; no account invented — CLAUDE.md conventions, `01` |
 | J-11 | R-7 (Check 1052 written and voided) treated as net-zero, no adjustment; confirmation still requested | G04 and G06 offset exactly; no bank clearing | `04` §4; preparer inference (labelled) |
 | J-12 | Materiality: no floor applied; every item investigated and disclosed regardless of amount | No materiality threshold supplied; `03` §3 and §6 require identification and classification of all reconciling items | `03` §3, §6; preparer working assumption (flagged, §10) |
 | J-13 | July AJE-1 treated as posted for continuity purposes, with Controller confirmation requested | August GL beginning (73,440.00) = July TB ending (73,475.00) − 35.00; exact match to July AJE-1 | `04` §2; preparer inference (labelled) |
