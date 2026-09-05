@@ -298,3 +298,44 @@ Original ST-3 finding stands as reported — one month of directionally consiste
 vendor-payment defects, with July as a clean comparison point. Recommend heightened
 diligence on AJE-1/2/3 specifically before approval; not evidence of a broader problem
 beyond August.
+
+---
+
+## Section G — Closing disposition (Controller decision, 2026-09-05)
+
+The workpaper's header block now shows **Reviewed by: Controller, Date reviewed: 2026-09-05,
+Review outcome: Approved.** This section records what that approval resolves against each
+of the eight items in the workpaper's §12 "what the Controller must act on" list, since a
+checked box alone doesn't show which open questions it actually settles. The approved
+workpaper itself is treated as frozen from this point — this disposition is recorded here,
+not by reopening its conclusion.
+
+| # | Action item (workpaper §12) | Disposition | Basis |
+|---:|---|---|---|
+| 1 | Approve or reject AJE-1 through AJE-5 | **Approved as proposed.** Net cash effect (6,724.25): AJE-1 (4,820.00), AJE-2 (27.00), AJE-3 (1,845.00), AJE-4 (42.00), AJE-5 +9.75. | Controller, 2026-09-05 |
+| 2 | Designate the credit account for AJE-5 | **410000 Interest Income** — new account, proposed in `references/01a company-profile (proposed revision).md`, pending Controller approval of that revision. Not yet reflected in the authoritative `01`. | Controller, 2026-09-05 |
+| 3 | Decide the R-2/R-3 classification | **GL-error reading confirmed** (the workpaper's primary presentation) — AJE-2 and AJE-3 post as proposed; no bank investigation opened. | Controller, 2026-09-05 |
+| 4 | Direct B10's disposition | **Confirmed excluded**, treated as a duplicate/data-quality artifact, per the original 2026-08-29 direction and reaffirmed by this approval. No corrected bank file was sought or obtained — see the residual risk noted below. | Controller, 2026-08-29 and 2026-09-05 |
+| 5 | Confirm coding/sourcing of GL row G08 | Acknowledged as disclosed; no separate confirmation was given in conversation beyond the blanket approval. No further action. | Controller approval (blanket), 2026-09-05 |
+| 6 | Confirm July AJE-1 (35.00) was posted | Acknowledged on the strength of the balance-tie evidence already in §4; no direct posting confirmation exists in any source data. No further action. | Controller approval (blanket), 2026-09-05 |
+| 7 | Note the recurring cutoff pattern | Informational; already consolidated in §9 Open observations. No action required. | — |
+| 8 | Confirm Check 1052 is genuinely voided | Acknowledged as disclosed; no separate confirmation given beyond the blanket approval. No further action. | Controller approval (blanket), 2026-09-05 |
+
+**Distinguishing how these were resolved, for the record:** items 1–4 were decisions the
+Controller made explicitly in conversation (the AJEs, the account, the reading, B10).
+Items 5, 6, and 8 are acknowledged under the blanket approval rather than individually
+confirmed — worth knowing if either resurfaces later, since "approved" and "explicitly
+verified" aren't quite the same evidentiary weight.
+
+**Residual risk carried forward, not resolved:** B10 (3,300.00) was never confirmed against
+an actual corrected bank record — the conclusion remains, as originally stated, contingent
+on B10 being a spurious duplicate rather than a genuine second deposit. Approving the
+reconciliation accepts that contingency; it doesn't remove it.
+
+**Outstanding before this can be fully closed:** approval of `01a` (the chart-of-accounts
+revision) is still pending — AJE-5 cannot actually post to a real account until that's
+approved. Recommend approving `01a` in the same sitting as this closing disposition.
+
+*This section, together with Sections A–F, is the complete evidentiary record of the review
+and its resolution. The workpaper's own reviewer block and this file together satisfy `03`
+§8 (evidence retention) and `05` (evidence of review retained with the reconciliation).*
