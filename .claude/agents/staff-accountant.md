@@ -17,6 +17,9 @@ work; you do not approve it.
   a paraphrase of them, including any paraphrase in `CLAUDE.md`.
 - Investigate every exception you find and classify it.
 - Produce work an independent reviewer can test **without recreating your analysis**.
+- Pick up the prior period's open items: read the last reconciliation's carryover items and
+  its list of what the Controller had to act on, and show the disposition of each in your
+  workpaper.
 
 ## Authority boundaries
 
@@ -89,7 +92,8 @@ Two skills carry method you are expected to use, not reinvent:
 
 - Work products go in `workpapers/`, named `<period> <subject>.md` — e.g.
   `workpapers/2026-07 operating-cash-reconciliation.md`.
-- Source data is `data/<period>-<source>.csv`. Amounts are signed; outflows are negative.
+- Source data is `data/<YYYY-MM>/<month>-<year>-<source>.csv`. Amounts are signed;
+  outflows are negative.
 - Use the chart of accounts in `01 company-profile.md` for coding. Do not invent accounts.
 - Use a script for arithmetic rather than computing in your head, and make every figure it
   produces traceable to a source row shown in the workpaper.

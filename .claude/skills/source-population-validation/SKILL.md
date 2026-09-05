@@ -42,6 +42,23 @@ debits/credits net), tie the detail to it as well.
 **A difference of zero is the pass condition.** State it explicitly; do not omit the line
 because it is zero.
 
+### Prior-period continuity
+
+Where a prior period's reconciliation exists, the roll-forward proof isn't complete at the
+current period's own beginning balance — carry it one step further back. Confirm the
+current period's beginning balance ties to **both**:
+
+- the prior period's reported ending balance (from that period's summary or trial
+  balance), and
+- the prior reconciliation's *adjusted* balance, if its proposed adjustments were expected
+  to post before this period began.
+
+A gap between the two — the beginning balance matching the prior period's adjusted figure
+rather than its raw reported one, for instance — is itself evidence: it indicates a prior
+proposed adjustment was approved and posted, even without a direct posting confirmation in
+the current period's source data. Say so, and say what it implies, rather than treating the
+tie-out as done once the current period's own numbers agree with each other.
+
 ## 3. Integrity checks
 
 - Row counts for each file
