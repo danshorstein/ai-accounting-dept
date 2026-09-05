@@ -20,8 +20,20 @@ Arithmetic performed by `workpapers/2026-08 operating-cash-reconciliation.py` (r
 > population validation (bank side did not tie by 3,300.00). The Controller reviewed that
 > draft and, on 2026-08-29, directed: set duplicate bank row B10 aside and proceed with the
 > detailed reconciliation excluding it; carry all other findings through to where they
-> land; use the engagement parameters in §9; verify roll-forward continuity from July; and
+> land; use the engagement parameters in §10; verify roll-forward continuity from July; and
 > confirm July carryover items. This version implements that direction.
+
+> **Correction note (2026-09-05).** The independent review of this workpaper, dated
+> 2026-09-05 (`workpapers/2026-08 operating-cash-reconciliation — independent review.md`),
+> returned two items for correction: (1) RP-1 — a required "Open observations" section was
+> missing; its content existed but was scattered across §3, §5, and the former §11's action
+> item 7. Added as new §9, consolidating that disclosure, with subsequent sections
+> renumbered. (2) ST-1 — the conclusion's lead sentence stated "reconciles" before its
+> governing contingency (duplicate bank row B10) rather than before or alongside it. The
+> lead sentence in what is now §12 was reordered accordingly. No figure, match,
+> classification, judgment-log entry, or conclusion substance was changed. The review's
+> FLAG items (ST-2, ST-3, ST-4, ST-6, RP-8) are escalations for the Controller, not
+> preparer corrections, and are not addressed in this workpaper.
 
 ---
 
@@ -63,7 +75,7 @@ Sources: bank beginning/ending from `august-2026-bank-summary.csv`; GL beginning
 | Reported ending balance | 78,659.75 | `august-2026-bank-summary.csv` |
 | **Difference** | **0.00** | — |
 
-With all 17 rows the bank detail over-explains the balance change by **3,300.00**, which equals bank row **B10** exactly (B09 and B10 are an exact duplicate on date + amount + description: 2026-08-15, "Customer deposit K", 3,300.00). Per Controller direction (2026-08-29), B10 is set aside as a likely data-quality artifact and excluded from all matching and totals below; it remains a disclosed integrity finding (I-1) and an escalation (§10). **The reported bank ending balance of 78,659.75 already reflects a single deposit K**, so excluding B10 makes the population internally consistent. The preparer has not confirmed B10 is spurious rather than a genuine second same-day deposit — see I-1 and the conclusion caveat in §11.
+With all 17 rows the bank detail over-explains the balance change by **3,300.00**, which equals bank row **B10** exactly (B09 and B10 are an exact duplicate on date + amount + description: 2026-08-15, "Customer deposit K", 3,300.00). Per Controller direction (2026-08-29), B10 is set aside as a likely data-quality artifact and excluded from all matching and totals below; it remains a disclosed integrity finding (I-1) and an escalation (§11). **The reported bank ending balance of 78,659.75 already reflects a single deposit K**, so excluding B10 makes the population internally consistent. The preparer has not confirmed B10 is spurious rather than a genuine second same-day deposit — see I-1 and the conclusion caveat in §12.
 
 ### GL roll-forward — ties
 
@@ -87,12 +99,12 @@ The GL detail sum (101000 rows only) also agrees exactly to the TB `debits_credi
 
 | Ref | Population | Row(s) | Finding | Effect on the roll-forward | Where it lands |
 |---|---|---|---|---|---|
-| I-1 | Bank | B09, B10 | Exact-duplicate row: 2026-08-15, "Customer deposit K", 3,300.00, twice | Breaks the bank roll-forward by 3,300.00; excluding B10 ties it exactly | Set aside per Controller (§3); escalation (§10); conclusion caveat (§11) |
-| I-2 | Bank | B01 | "Customer deposit J", 2,600.00, dated **2026-07-31** in the August file; not in the July bank population | None — needed for the bank side to tie; matched to G02 | Disclosed observation; matched pair 1 (§6); recurring cutoff pattern (§5 C-3) |
-| I-3 | GL | G08 | "AR write-off - Bright Retailers", (1,250.00), posted to **110000**, present in the cash-detail file | None — excluded from the 101000 net; GL still ties | Excluded from population; reconciling-items table (§6); escalation (§10) |
-| I-4 | GL | G09 | Sign anomaly: "Vendor Zeta payment" **+2,410.00** where every other vendor payment is negative | None — TB built from same detail; ties internally | Reconciling item **R-1** (§6); proposed **AJE-1** (§7); escalation (§10) |
-| I-5 | GL | G04, G06 | Check 1052 — Acme Freight written (−890.00, 8/5) and voided (+890.00, 8/7); net zero | None — nets to zero | Reconciling item **R-7** (§6); no adjustment; Controller confirmation requested (§11) |
-| I-6 | GL vs Bank | G10 / B08 | "Vendor Theta payment" GL **(5,436.00)** vs bank **(5,463.00)** — apparent 27.00 transposition | None to the GL roll-forward (internally consistent); prevents an exact match | Reconciling item **R-2** (§6); proposed **AJE-2** or bank investigation (§7, §8); escalation (§10) |
+| I-1 | Bank | B09, B10 | Exact-duplicate row: 2026-08-15, "Customer deposit K", 3,300.00, twice | Breaks the bank roll-forward by 3,300.00; excluding B10 ties it exactly | Set aside per Controller (§3); escalation (§11); conclusion caveat (§12) |
+| I-2 | Bank | B01 | "Customer deposit J", 2,600.00, dated **2026-07-31** in the August file; not in the July bank population | None — needed for the bank side to tie; matched to G02 | Disclosed observation; matched pair 1 (§6); recurring cutoff pattern (§5 C-3); consolidated in **§9 Open observations** |
+| I-3 | GL | G08 | "AR write-off - Bright Retailers", (1,250.00), posted to **110000**, present in the cash-detail file | None — excluded from the 101000 net; GL still ties | Excluded from population; reconciling-items table (§6); escalation (§11) |
+| I-4 | GL | G09 | Sign anomaly: "Vendor Zeta payment" **+2,410.00** where every other vendor payment is negative | None — TB built from same detail; ties internally | Reconciling item **R-1** (§6); proposed **AJE-1** (§7); escalation (§11) |
+| I-5 | GL | G04, G06 | Check 1052 — Acme Freight written (−890.00, 8/5) and voided (+890.00, 8/7); net zero | None — nets to zero | Reconciling item **R-7** (§6); no adjustment; Controller confirmation requested (§12) |
+| I-6 | GL vs Bank | G10 / B08 | "Vendor Theta payment" GL **(5,436.00)** vs bank **(5,463.00)** — apparent 27.00 transposition | None to the GL roll-forward (internally consistent); prevents an exact match | Reconciling item **R-2** (§6); proposed **AJE-2** or bank investigation (§7, §8); escalation (§11) |
 
 ### Disposition
 
@@ -106,7 +118,7 @@ Both populations tie to their reported ending balances (bank after excluding B10
 | GL 101000 — raw | 73,475.00 (July TB ending, July workpaper §2) | 73,440.00 | No — differs by 35.00 |
 | GL 101000 — after July AJE-1 | 73,475.00 − 35.00 = **73,440.00** | 73,440.00 | **Yes — equal after posting the July bank-fee adjustment.** |
 
-The 35.00 GL discontinuity is exactly the July proposed adjustment **AJE-1** (Dr 620000 Bank Fees / Cr 101000 Operating Cash, 35.00 — the unrecorded July bank service charge, July workpaper item T-2). The August GL beginning balance equals the July *adjusted* book balance, which indicates AJE-1 was approved and posted after the July trial balance was struck. The preparer has no direct posting confirmation in the August source data and asks the Controller to confirm (§11). No other continuity break exists.
+The 35.00 GL discontinuity is exactly the July proposed adjustment **AJE-1** (Dr 620000 Bank Fees / Cr 101000 Operating Cash, 35.00 — the unrecorded July bank service charge, July workpaper item T-2). The August GL beginning balance equals the July *adjusted* book balance, which indicates AJE-1 was approved and posted after the July trial balance was struck. The preparer has no direct posting confirmation in the August source data and asks the Controller to confirm (§12). No other continuity break exists.
 
 ## 5. July 2026 carryover items — disposition in August
 
@@ -116,11 +128,11 @@ The 35.00 GL discontinuity is exactly the July proposed adjustment **AJE-1** (Dr
 | C-2 | T-2 / AJE-1 — unrecorded July bank service charge | 35.00 | **Posted** (per §4 continuity). Confirm with Controller. | August GL beginning balance 73,440.00 = July TB ending 73,475.00 − 35.00 |
 | C-3 | §6 cutoff observation — "AR receipt E" (7,400.00) dated 2026-08-01 but included in July TB activity; bank deposit cleared 2026-07-31 | 7,400.00 | **Not double-counted.** No "deposit E" in the August bank file and no "AR receipt E" in the August GL file; the item sits only in the July populations. No August effect. | Absence from `august-2026-bank.csv` and `august-2026-gl-cash.csv` |
 
-No outstanding deposits in transit were carried forward from July (all July deposits cleared within July per that workpaper). The recurring posting-date pattern flagged in July C-3 appears again in August as I-2 (bank deposit dated 7/31 / GL receipt dated 8/1) — disclosed, no reconciliation effect.
+No outstanding deposits in transit were carried forward from July (all July deposits cleared within July per that workpaper). The recurring posting-date pattern flagged in July C-3 appears again in August as I-2 (bank deposit dated 7/31 / GL receipt dated 8/1) — disclosed, no reconciliation effect; consolidated with its July precedent in **§9 Open observations**.
 
 ## 6. Matched activity and reconciliation
 
-**Matching basis (engagement parameters, Controller, 2026-08-29 — scoped to this engagement, §9):** exact amount ($0.00 tolerance); date window up to 5 days; description used as corroborating evidence. B10 excluded (§3).
+**Matching basis (engagement parameters, Controller, 2026-08-29 — scoped to this engagement, §10):** exact amount ($0.00 tolerance); date window up to 5 days; description used as corroborating evidence. B10 excluded (§3).
 
 ### Matched pairs — 10 bank rows to 10 GL rows
 
@@ -151,7 +163,7 @@ No match was forced. **Every source row appears exactly once** across the matche
 | R-2 | Both (error) | 2026-08-14 | Vendor Theta payment — GL posted **(5,436.00)**, bank paid **(5,463.00)** | (27.00) | Requires GL adjustment **or** bank investigation — apparent 27.00 transposition (5,436 ↔ 5,463) | Bank row B08 (−5,463.00) vs GL row G10 (−5,436.00) |
 | R-3 | Bank only | 2026-08-20 | ACH Vendor Delta — second identical payment, not in GL | (1,845.00) | Requires GL adjustment **or** bank investigation — see two readings below | Bank row B13 (−1,845.00); GL has only one Delta payment (G05, matched to B05); no GL row within the window |
 | R-4 | Bank only | 2026-08-29 | Bank service charge | (42.00) | Requires GL adjustment — unrecorded bank fee | Bank row B16; no GL entry |
-| R-5 | Bank only | 2026-08-29 | Interest earned | 9.75 | Requires GL adjustment — unrecorded interest income; **no suitable income account in the chart** (§8, §10) | Bank row B17; no GL entry |
+| R-5 | Bank only | 2026-08-29 | Interest earned | 9.75 | Requires GL adjustment — unrecorded interest income; **no suitable income account in the chart** (§8, §11) | Bank row B17; no GL entry |
 | R-7 | GL only | 2026-08-05 / 08-07 | Check 1052 — Acme Freight written (G04, −890.00) then voided (G06, +890.00) | 0.00 | Timing difference — net zero; no bank activity, no adjustment | GL rows G04 and G06; no bank clearing (check voided before clearing) |
 | I-3 | GL only | 2026-08-11 | AR write-off — Bright Retailers, posted to account **110000**, present in the cash-detail file | (1,250.00) | Not a cash item — excluded from the reconciled population; coding / file-sourcing question | GL row G08; account 110000, not 101000 |
 
@@ -222,7 +234,41 @@ Items needing **no** GL entry: C-1 (outstanding check cleared — timing), R-7 (
 
 No unexplained monetary residual exists: the (6,724.25) difference is fully explained (§6 proof, residual 0.00).
 
-## 9. Engagement parameters
+## 9. Open observations
+
+Content that does not change the reconciliation but that a reviewer should know about. This
+consolidates disclosures that otherwise appear only in passing elsewhere in this workpaper
+(§3's integrity-findings table, §5's carryover note, and §12's action item 7); it does not
+replace those mentions, which remain in place as cross-references to this section.
+
+**Recurring cutoff pattern — bank deposit dated the last day of a month; GL receipt posted
+the first of the next month.**
+
+- **August (finding I-2):** Bank row B01 — "Customer deposit J," 2,600.00 — carries a
+  2026-07-31 date in the August bank file, while the corresponding GL entry G02 — "AR
+  receipt J" — is dated 2026-08-01. The two are matched at a 1-day gap, within the 5-day
+  window, on exact amount and corroborating description (§6, pair 1). Each side sits in its
+  own period's reported population (§3), so this is not a reconciling item and has no effect
+  on either roll-forward.
+- **July precedent (item C-3, prior workpaper):** The same pattern occurred one month
+  earlier — "AR receipt E" (7,400.00) was dated 2026-08-01 in the GL but tied to a bank
+  deposit that had cleared 2026-07-31, per the July workpaper. Checked directly against the
+  August source files (§5): no "deposit E" appears in `august-2026-bank.csv` and no "AR
+  receipt E" appears in `august-2026-gl-cash.csv` — the item was not duplicated into August.
+
+Two occurrences in two consecutive months of the same bank-cleared-last-day /
+GL-posted-first-day pattern is not, by itself, an error — a deposit can legitimately clear a
+day before the corresponding AR receipt is posted. But it is a pattern rather than a
+one-off, and it is disclosed here — rather than resolved — because resolving it would
+require visibility into the bank's and the AR system's posting timestamps, which this
+reconciliation's source data does not provide. It is worth the Controller's attention as a
+cutoff-testing question and possibly a GL posting-date-convention question, independent of
+either month's individual reconciliation conclusion.
+
+This observation does not affect the residual proof (§6) or the conclusion (§12) in either
+period.
+
+## 10. Engagement parameters
 
 Supplied by the Controller for **this engagement only** on 2026-08-29; not standing rules and not carried forward (`04` "Judgment").
 
@@ -230,12 +276,12 @@ Supplied by the Controller for **this engagement only** on 2026-08-29; not stand
 |---|---|---|
 | Matching tolerance (amount) | $0.00 — exact | §6 matching; caused B07/G09 and B08/G10 to remain unmatched |
 | Date window | 5 days | §6 matching; pair 1 (B01/G02) accepted at a 1-day gap |
-| Escalation threshold | $200.00 | §10 |
+| Escalation threshold | $200.00 | §11 |
 | Materiality | Not specified | Working assumption below |
 
 **Materiality — working assumption (preparer, flagged):** no materiality floor is applied. Every unmatched item and every apparent error is investigated, classified, and disclosed regardless of amount; nothing is netted or waived as immaterial. Amount-based escalation uses the $200.00 threshold; items below it are still escalated when unusual **in kind** (an apparent posting error, a chart-of-accounts gap). If the Controller intends a different treatment, this reconciliation should be revisited.
 
-## 10. Escalation assessment
+## 11. Escalation assessment
 
 Threshold: **$200.00** (Controller, 2026-08-29). Items are also escalated below the threshold when unusual in kind.
 
@@ -252,9 +298,9 @@ Threshold: **$200.00** (Controller, 2026-08-29). Items are also escalated below 
 | R-7 Check 1052 written/voided | 0.00 | No | No | No | Net zero; disclosed |
 | I-2 deposit J dated 2026-07-31 | 0.00 (matched) | No | Minor — recurring cutoff pattern | No | Disclosed observation; noted for cutoff testing |
 
-## 11. Conclusion
+## 12. Conclusion
 
-**Account 101000 Operating Cash reconciles for August 2026:** the (6,724.25) difference between the bank ending balance of 78,659.75 (excluding duplicate row B10) and the GL ending balance of 85,384.00 is fully explained by supported reconciling items with a residual of **0.00**, and nothing was plugged, forced, or assumed. Adjusted bank and adjusted book balances both equal **78,659.75** under the primary (GL-error) reading, or **80,531.75** under the bank-error reading; the residual is 0.00 either way.
+**Account 101000 Operating Cash conditionally reconciles for August 2026, contingent on treating duplicate bank row B10 (3,300.00) as a spurious, unconfirmed data artifact — see the caveats below.** Subject to that contingency: the (6,724.25) difference between the bank ending balance of 78,659.75 (excluding duplicate row B10) and the GL ending balance of 85,384.00 is fully explained by supported reconciling items with a residual of **0.00**, and nothing was plugged, forced, or assumed. Adjusted bank and adjusted book balances both equal **78,659.75** under the primary (GL-error) reading, or **80,531.75** under the bank-error reading; the residual is 0.00 either way.
 
 **The GL is not correct as reported.** Bringing adjusted book into agreement requires five proposed adjustments with a net cash effect of **(6,724.25)**: AJE-1 (4,820.00), AJE-2 (27.00), AJE-3 (1,845.00), AJE-4 (42.00), AJE-5 +9.75. None are posted.
 
@@ -268,10 +314,10 @@ Threshold: **$200.00** (Controller, 2026-08-29). Items are also escalated below 
 4. **Direct the disposition of duplicate bank row B10** (I-1, 3,300.00): confirm whether the bank record is one deposit K or two, and obtain a corrected bank file if the summary is wrong. Confirm whether GL "AR receipt K" (G11, 3,300.00) is correct as a single receipt.
 5. **Confirm the coding / sourcing of GL row G08** (I-3): an AR write-off (1,250.00) posted to account 110000 appears in `august-2026-gl-cash.csv`; confirm it is correctly excluded from the cash reconciliation and why it is in this file.
 6. **Confirm July AJE-1 (35.00 bank fee) was posted** (§4, §5 C-2) — the August GL beginning balance implies it was, but there is no direct posting confirmation in the August source data.
-7. **Note the recurring cutoff pattern** (I-2 / July C-3): deposits dated the last day of a month posting to the GL on the first of the next. No August reconciliation effect; relevant to cutoff testing and the GL posting-date convention.
+7. **Note the recurring cutoff pattern** (I-2 / July C-3): deposits dated the last day of a month posting to the GL on the first of the next. No August reconciliation effect; relevant to cutoff testing and the GL posting-date convention. See **§9 Open observations** for the consolidated disclosure.
 8. **Confirm Check 1052** (R-7) is genuinely voided and no payment to Acme Freight is outstanding.
 
-## 12. Judgment log
+## 13. Judgment log
 
 | # | Judgment | Basis | Source of authority |
 |---:|---|---|---|
@@ -286,7 +332,7 @@ Threshold: **$200.00** (Controller, 2026-08-29). Items are also escalated below 
 | J-9 | R-4 (42.00 bank fee) proposed as an adjustment, not escalated | Routine unrecorded bank fee, fully supported, below the $200 threshold, not unusual in kind; consistent with July T-2 | `04` §5; Controller threshold 2026-08-29 |
 | J-10 | R-5 (9.75 interest) escalated despite being below threshold; no credit account assumed | No interest-income account in the chart; a chart-of-accounts gap is unusual in kind; "do not invent accounts" | CLAUDE.md conventions; `01`; `03` §5 |
 | J-11 | R-7 (Check 1052 written and voided) treated as net-zero, no adjustment; confirmation still requested | G04 and G06 offset exactly; no bank clearing | `04` §4; preparer inference (labelled) |
-| J-12 | Materiality: no floor applied; every item investigated and disclosed regardless of amount | No materiality threshold supplied; `03` §3 and §6 require identification and classification of all reconciling items | `03` §3, §6; preparer working assumption (flagged, §9) |
+| J-12 | Materiality: no floor applied; every item investigated and disclosed regardless of amount | No materiality threshold supplied; `03` §3 and §6 require identification and classification of all reconciling items | `03` §3, §6; preparer working assumption (flagged, §10) |
 | J-13 | July AJE-1 treated as posted for continuity purposes, with Controller confirmation requested | August GL beginning (73,440.00) = July TB ending (73,475.00) − 35.00; exact match to July AJE-1 | `04` §2; preparer inference (labelled) |
 | J-14 | B01 (2026-07-31 date in the August bank file) matched to G02 and disclosed as observation I-2, not treated as a reconciling item | Exact amount, 1-day gap within the 5-day window, corroborating description; each side sits in its own period population | J-5; `source-population-validation` skill §1, §4 |
 
