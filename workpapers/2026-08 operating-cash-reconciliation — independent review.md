@@ -256,3 +256,45 @@ AJE-5's missing account). Recommend: **ready for Controller decision on those su
 points; no further return to the preparer required on RP-1 or ST-1.**
 
 *Held for Controller sign-off, as before.*
+
+---
+
+## Section F — ST-3 follow-up (2026-09-05)
+
+ST-3's recommendation was to sample additional August vendor postings, beyond the three
+already identified, before approving AJE-1/2/3. Performed as reviewer-side investigation —
+this does not touch the workpaper or its conclusions.
+
+**Within August:** the reconciliation's own population is closed. All 17 bank rows and all
+15 GL rows have already been examined and accounted for exactly once, to a 0.00 residual
+(RP-4, this review). There is no further vendor-posting data sitting outside that
+population within this dataset — no AP subledger, no second cash account, nothing in
+`data/2026-08/` beyond the four files already used. A literal "sample more" inside August
+cannot surface anything new: it would just re-examine rows already classified. The
+directional finding stands on what was already found (R-1, R-2, R-3), not on an assumption
+that more is hiding.
+
+**Cross-period, as the next-best check:** re-examined July's raw source files directly
+(`july-2026-bank.csv`, `july-2026-gl-cash.csv`). July's three vendor ACH payments (Alpha
+−3,250.00, Beta −4,725.00, Gamma −2,180.00) match bank to GL exactly on both sides — no sign
+flips, no transpositions, no missing entries. July's only two reconciling items were an
+outstanding check (timing, not a data error) and an unrecorded bank fee (routine — a fee is
+almost always discovered from the bank's side after the fact, in any month, for any
+company; this is mechanical, not a defect). **July had zero vendor-payment data-entry
+errors of any kind.**
+
+**Conclusion:** we have exactly one data point — August — showing the directional pattern
+in actual vendor-payment defects. July shows none. That is not enough to call this a trend
+or a recurring control weakness; it may simply be one bad month. It is also not nothing:
+the one month we can see it in shows every such error, without exception, in the same
+direction. Recommend treating this as a reason for **heightened scrutiny on the specific
+three postings already identified (AJE-1/2/3)** — for instance, confirming the vendor
+invoices independently before approving — rather than as license to widen the investigation
+further, since there is nowhere further to widen it to within available data. If a third
+month later shows the same pattern, that would be the point to treat it as systemic.
+
+**Result:** Investigated. No additional errors found (none exist to find in this dataset).
+Original ST-3 finding stands as reported — one month of directionally consistent, genuine
+vendor-payment defects, with July as a clean comparison point. Recommend heightened
+diligence on AJE-1/2/3 specifically before approval; not evidence of a broader problem
+beyond August.
