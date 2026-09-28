@@ -24,7 +24,7 @@ under test.
       ```
       git log --oneline -- eval/
       ```
-      on branch `eval-fixture/august-2026`. **This must print nothing.** If it
+      on branch `eval-fixture/august-2026-v2`. **This must print nothing.** If it
       prints anything, stop — the fixture is no longer clean, and testing against
       it would leak the answer. Ask the orchestrator session to rebuild it before
       continuing (see `eval/README.md`, "Isolation architecture").
@@ -35,7 +35,7 @@ For each model, tell the orchestrator session:
 
 > Start a new test session for model `<exact model ID>`. Use `create_session` with:
 > - `source_url`: this repository
-> - `source_revision`: the current commit of `eval-fixture/august-2026`
+> - `source_revision`: the current commit of `eval-fixture/august-2026-v2`
 > - `model`: `<exact model ID>`
 > - `outcome_branch`: `eval-run/<short-model-name>-<today's date>`
 > - `permission_mode`: `bypassPermissions`

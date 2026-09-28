@@ -15,7 +15,7 @@ with its ground truth and `README.md` (this file) spells out all nine traps belo
 model doing the actual reconciliation must never see any of it — and in fact never
 needs to, since a real engagement wouldn't have an `eval/` folder either.
 
-So test sessions never check out this branch. They check out **`eval-fixture/august-2026`**,
+So test sessions never check out this branch. They check out **`eval-fixture/august-2026-v2`**,
 pinned to a specific commit, whose own git history never contained `eval/` at any
 point (branched off the commit before `eval/` existed, with only the August CSVs
 cherry-picked on top — so `git log -p` inside that checkout can't recover it either).
@@ -24,6 +24,21 @@ runs can't see each other. Full mechanics, the exact commit to pin, and the
 per-model `create_session` shape are in `prompts/august-2026-task-prompt.md` — follow
 that file to actually run a test, and re-read it if the fixture branch is ever
 regenerated (the commit to pin will change).
+
+## Keeping the fixture in sync with the agent and skills
+
+The fixture carries its own copy of `.claude/` (the agent and Skills under test). When
+`.claude/` changes on this branch, the fixture goes stale and a model comparison would
+run the *old* agent. Rebuild it as a new branch (`eval-fixture/august-2026-v3`, ...)
+from the last pre-`eval/` commit `1d1ae91`, copy in the four August CSVs and the current
+`.claude/` files, confirm `git log --oneline -- eval/` prints nothing, then update the
+pinned commit in `RUNBOOK.md` and `prompts/august-2026-task-prompt.md`. Never force-push
+over an old fixture branch: earlier run results stay traceable to the exact commit they
+used.
+
+Fixture history: `eval-fixture/august-2026` (`f803507`) is superseded by
+`eval-fixture/august-2026-v2` (`14a8edb`), which adds the retrained
+workpaper-construction skill.
 
 ## What's here
 
@@ -62,7 +77,7 @@ session.
 
 See `prompts/august-2026-task-prompt.md` for the full mechanics (the fixture commit
 to pin, the `create_session` shape, the exact prompts). In short, per model: spin up
-an isolated session on `eval-fixture/august-2026`, run Step 1 then Step 2, fetch the
+an isolated session on `eval-fixture/august-2026-v2`, run Step 1 then Step 2, fetch the
 JSON it pushed to its own output branch, and grade it from here:
 
 ```

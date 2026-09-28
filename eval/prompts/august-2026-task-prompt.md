@@ -17,8 +17,8 @@ answer key in a different shape. A model reconciling August only needs `data/`,
 engagement has.
 
 So: **test sessions must never check out `claude/reconciliation-model-testing-5yat7g`.**
-They check out **`eval-fixture/august-2026`**, pinned to commit
-**`f8035075ebb4efb829e834eae8abe7b2a2ce06eb`**. That branch's own git history never
+They check out **`eval-fixture/august-2026-v2`**, pinned to commit
+**`14a8edb471f6ab68a1eef38782fcbd9ffcb7d76c`**. That branch's own git history never
 contained `eval/` at any point — it was built by branching off the commit *before*
 `eval/` existed and cherry-picking only the four August CSVs on top — so even
 `git log -p` or `git show` inside that checkout can't recover it. (A model would still
@@ -32,7 +32,7 @@ adversarial thoroughness specifically; not necessary for a capability/cost compa
 Always re-verify before a test run, in case the fixture branch is ever regenerated:
 
 ```
-git log --oneline -- eval/    # run against eval-fixture/august-2026 -- must print nothing
+git log --oneline -- eval/    # run against eval-fixture/august-2026-v2 -- must print nothing
 ```
 
 ## Per-model isolation
@@ -41,7 +41,7 @@ Each model gets its own session via `create_session`, pointed at the pinned fixt
 commit, with its own unique output branch so runs can never see each other:
 
 - `source_url`: this repository
-- `source_revision`: `f8035075ebb4efb829e834eae8abe7b2a2ce06eb` (NOT the working branch)
+- `source_revision`: `14a8edb471f6ab68a1eef38782fcbd9ffcb7d76c` (NOT the working branch)
 - `model`: the model under test
 - `outcome_branch`: something unique per run, e.g. `eval-run/<model-name>-<date>` —
   never reuse one across models, and never point it at a branch another run reads
