@@ -1,0 +1,18 @@
+id,date,description,amount
+B01,2026-07-31,Customer deposit J,2600.00
+B02,2026-08-01,Customer deposit F,5200.00
+B03,2026-08-04,Check 1048 - Office Supply Co,-620.00
+B04,2026-08-05,ACH Vendor Alpha,-3410.00
+B05,2026-08-06,ACH Vendor Delta,-1845.00
+B06,2026-08-09,Customer deposit G,7850.00
+B07,2026-08-12,ACH Vendor Zeta,-2410.00
+B08,2026-08-14,ACH Vendor Theta,-5463.00
+B09,2026-08-15,Customer deposit K,3300.00
+B10,2026-08-15,Customer deposit K,3300.00
+B11,2026-08-15,Payroll,-10200.00
+B12,2026-08-18,Customer deposit H,6300.00
+B13,2026-08-20,ACH Vendor Delta,-1845.00
+B14,2026-08-22,ACH Vendor Beta,-2975.00
+B15,2026-08-27,Customer deposit I,8150.00
+B16,2026-08-29,Bank service charge,-42.00
+B17,2026-08-29,Interest earned,9.75

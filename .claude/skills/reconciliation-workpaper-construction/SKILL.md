@@ -58,6 +58,14 @@ name, debit/credit, a plain-language description, and the source row supporting 
 that they require approval and are not reflected in any balance above. Where an item needs
 no entry (a timing difference), say so rather than leaving it ambiguous.
 
+**Where an item has two supportable readings you have not resolved (§10), no single
+entry is "the" proposal.** Draft each entry under the reading that would require it and
+label it *conditional — posts only if the Controller determines <reading>*. Do not draft
+an entry for a reading you have said the data cannot choose between, and do not present
+one reading as "primary" in the reconciliation statement (§6): show the statement under
+each reading side by side. Entries that do not depend on any open reading are presented
+normally.
+
 **9. Unresolved exceptions.** Explicitly "none" if there are none. Do not omit the section.
 
 **10. Open observations.** Things that do not change the reconciliation but that the
@@ -67,7 +75,8 @@ affect a later period. Give both readings and say why you did not choose between
 **11. Escalation assessment.** The threshold applied and its source, then each item against
 it with an escalated yes/no. Include items escalated for reasons other than amount.
 
-**12. Conclusion.** Whether the account reconciles, in one sentence, with the figures. Then
+**12. Conclusion.** Whether the account reconciles, in one sentence, with the figures —
+under each open reading if §8 applies, not under a chosen one. Then
 a numbered list of **what the Controller must act on** — approvals needed, questions
 answered, items to confirm in a later period.
 
@@ -87,3 +96,20 @@ engagement — not adopted as standing rules.
 - Prefer the disclosed open question to the tidy resolution.
 - Present, do not summarize away: if a reviewer would have to recompute it to trust it, it
   belongs on the page.
+
+## Retained calculation scripts
+
+A script that produced the workpaper's figures is evidence, held to the same standard as
+the workpaper: a reviewer must be able to run it and reproduce the page.
+
+- Save it beside the workpaper as `workpapers/<period> <subject>.py`, and say in the
+  workpaper how to run it.
+- Locate inputs by path **relative to the repository root**. Never an absolute path on the
+  preparer's machine.
+- Read prior-period figures (opening balances, carryover items) from the prior-period
+  source files. Where a figure exists only in a prior workpaper, hardcode it once, in a
+  labelled constant that names its source, and list it in the workpaper as an input taken
+  from that source. Never let a prior-period number sit uncited in the logic, where it
+  goes stale silently when the script is reused.
+- No dead, placeholder, or commented-out code.
+- Print every figure the workpaper cites, so a reviewer can compare line for line.
