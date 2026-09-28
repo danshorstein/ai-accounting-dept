@@ -75,6 +75,37 @@ This is graded qualitatively (does the workpaper meet the standard in
 `reconciliation-workpaper-construction`?) and is also the input to Step 2. Wait for
 this to finish before sending Step 2 — don't hand the model the schema up front.
 
+## Step 1b — the expected halt, and the scripted Controller reply
+
+**Expect the Staff Accountant to stop at the population gate** and ask for direction. The
+exact-duplicate bank row makes the bank roll-forward fail, and its own rules
+(`source-population-validation` §4, agent escalation rules) require a stop before
+matching. Confirmed on 2026-09-28: it halts even when told no Controller is available.
+That halt is correct behavior, not a failure. Score it as a gate result, then resume it.
+
+Resume by starting a new session from the halted run's pushed commit (a cloud session
+that has finished cannot be messaged) and sending this scripted Controller reply. It names
+only the row the agent itself flagged, and reveals nothing about any other finding:
+
+> Use the staff-accountant agent. You previously halted the August 2026 operating cash
+> reconciliation at the population-validation gate; your halted workpaper and script are
+> in `workpapers/`. I am the Controller and have reviewed that draft. My direction:
+> 1. Set duplicate bank row B10 aside as a likely data-quality artifact and proceed with
+>    the detailed reconciliation excluding it. Keep it disclosed as an integrity finding
+>    and escalation.
+> 2. Carry all your other findings through to where they land.
+> 3. Engagement parameters for this engagement only: matching tolerance exact amount
+>    ($0.00); date window 5 days; escalation threshold $200.00; no materiality figure is
+>    specified.
+> 4. Verify roll-forward continuity from July and confirm the July carryover items
+>    against the July workpaper.
+>
+> Complete the reconciliation: update the existing workpaper and calculation script in
+> place, following the workpaper skill. When finished, commit everything and push.
+
+Use the same reply for every model so runs stay comparable. Grade the resumed run's
+workpaper, not the halted one.
+
 ## Step 2 — structured translation (send only after Step 1's workpaper is done)
 
 Paste the full contents of `eval/schema/reconciliation-result.schema.json` (from the

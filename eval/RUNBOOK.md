@@ -48,6 +48,13 @@ run's session can see the first's committed work, which defeats the isolation.
 
 Write down each model's `outcome_branch` name as you go — you'll need it in step 3.
 
+## 1b. Expect a halt; resume it (orchestrator session does this)
+
+Every model is expected to stop at the population gate on the first pass. Follow
+"Step 1b" in `eval/prompts/august-2026-task-prompt.md`: start a new session from the
+halted run's pushed commit with the scripted Controller reply, using a new unique
+`outcome_branch`. Record both branch names for each model.
+
 ## 2. Send Step 2 once each session finishes its workpaper (orchestrator session does this)
 
 Wait for a session to report that it has produced
